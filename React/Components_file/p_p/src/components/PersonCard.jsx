@@ -1,15 +1,27 @@
-import React from 'react'
-import '../newStyle.css'
+import React, { useState } from 'react'
+
+
 
 const PersonCard = (props) => {
+
     const { firstName, lastName, age, hairColor } = props
+
+    const [old, older] = useState(0)
+
+    const ageUp = () => {
+        older(old + 1)
+    }
+
     return (
         <div className='card'>
             <h1>{lastName}, {firstName}</h1>
-            <h2>Age: {age}</h2>
+            <h2>Age: {age + old}</h2>
             <h3>Hair Color: {hairColor}</h3>
+            <button onClick={ageUp}>Birthday Button for {lastName}, {firstName}</button>
+
         </div>
     );
 }
 
 export default PersonCard
+
