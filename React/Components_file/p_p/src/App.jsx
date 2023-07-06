@@ -5,9 +5,15 @@ import './newStyle.css'
 
 function App() {
   return (
-    <div >
-      <PersonCard firstName={"Jane"} lastName={"Doe"} age={45} hairColor={"Black"} />
-      <PersonCard firstName={"John"} lastName={"Smith"} age={88} hairColor={"Brown"} />
+    <div className="App">
+      {/* <PersonCard firstName={"Jane"} lastName={"Doe"} age={45} hairColor={"Black"} />
+      <PersonCard firstName={"John"} lastName={"Smith"} age={88} hairColor={"Brown"} /> */}
+      <PersonCard header={"Header Prop"}>
+        <h1>These are children</h1>
+        <p>This is a child</p>
+        <p>This is another child</p>
+        <p>This is even another child</p>
+      </PersonCard>
     </div>
   );
 }
