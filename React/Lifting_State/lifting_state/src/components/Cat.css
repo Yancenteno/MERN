@@ -1,0 +1,89 @@
+body {
+    background-image: url("https://wallpapercave.com/wp/wp8518228.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+.title {
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    margin: 5px;
+    padding: 0px;
+    margin-bottom: 20px;
+    font-family:cursive;
+    font-size: 50pt;
+    margin-left: 2%;
+}
+
+h2, h3 {
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    margin: 5px;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 16pt;
+    margin-right: 5%;
+}
+
+label {
+    margin-right:5px;
+}
+
+img {
+    width: 100%;
+}
+
+p, label {
+    color:white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.KittyBox{
+    position: relative;
+    display: inline-block;
+    margin: 30px;
+    background-color:rgb(95 76 76);
+    padding: 20px;
+    width: 300px;
+    box-shadow: 5px 5px 15px 5px #000000;
+
+
+}
+
+form{
+    margin: 30px;
+    background-color:rgb(95 76 76);
+    padding: 20px;
+    width: 300px;
+    box-shadow: 5px 5px 15px 5px #000000;
+
+
+}
+
+
+.KittyBoxAdopted{
+    position: relative;
+    display: inline-block;
+    margin: 30px;
+    background-color:rgb(95 76 76);
+    padding: 20px;
+    width: 300px;
+    box-shadow: 5px 5px 15px 5px #000000;
+
+    transform: rotate(-5deg);
+
+}
+
+.KittyBoxAdopted::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6); /* Adjust the opacity (0.6) to control the darkness */
+    pointer-events: none; /* Allow click events to pass through the overlay */
+  }
