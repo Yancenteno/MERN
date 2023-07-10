@@ -1,0 +1,20 @@
+/* .container {
+    font-size: 30px;
+    height: 800px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+button {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.content {
+    border: 2px solid black;
+} */
+
+.remove {
+    background-color: blue;
+    color: white;
+}
