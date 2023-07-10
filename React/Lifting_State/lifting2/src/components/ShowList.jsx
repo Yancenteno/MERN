@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import useList from './useList';
+import UseList from './UseList';
 
 export default () => {
     const [val, setVal] = useState('');
-    const { list, add } = useList(['first', 'second']);
+    const { list, add } = UseList(['first', 'second']);
 
     function handleSubmit() {
         add(val);
@@ -13,7 +13,7 @@ export default () => {
 
     return (
         <>
-            {list.map((item, i) => <p key={i}>{item}</p>}
+            {list.map((item, i) => <p key={i}>{item}</p>)}
             <input
                 onChange={e => setVal(e.target.value)}
                 value={val}
