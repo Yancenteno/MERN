@@ -54,10 +54,10 @@ function diagonalDifference(sqrMatrix) {
             }
         }
     }
-    return Math.abs(leftDiag - rightDiag);
+    return Math.abs(rightDiag - leftDiag);
 }
 
-console.log(diagonalDifference(squareMatrix1));
-console.log(diagonalDifference(squareMatrix2));
+console.log(diagonalDifference(squareMatrix1))
+console.log(diagonalDifference(squareMatrix2))
 
 /*****************************************************************************/
