@@ -1,0 +1,1 @@
+const jokeController = require('../controllers/joke.controller')

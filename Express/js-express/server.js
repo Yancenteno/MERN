@@ -4,6 +4,11 @@ const port = 8000
 
 require('dotenv').config()
 
+require('./config/mongoose.config')
+
+
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,4 +22,4 @@ routeAttacher(app)
 
 
 
-app.listen(port, () => console.log(process.env.MY_VARIABLE))
+app.listen(port, () => console.log(">>SERVER ONLINE"))

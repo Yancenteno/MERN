@@ -1,6 +1,16 @@
+const express = require('express')
+const app = express()
+const port = 8000
 
+require('dotenv').config()
 
+require('./config/mongoose.config')
 
-require('dotenv').config();
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-const mongoose = require('mongoose');
+const routeAttacher = require('./routes/jokes.routes')
+
+routeAttacher(app)
+
+app.listen(port, () => console.log('>>SERVER ONLINE'))

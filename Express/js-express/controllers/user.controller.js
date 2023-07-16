@@ -1,4 +1,4 @@
-const users = require('../models/user.model')
+const User = require('../models/user.model')
 
 module.exports = {
     hello: (req, res) => {
@@ -6,29 +6,53 @@ module.exports = {
     },
 
     allUsers: (req, res) => {
-        res.json(users)
+        User.find()
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     },
 
     oneUser: (req, res) => {
-        res.json(users[req.params.id])
+        User.findOne({ _id: req.params.id })
+            .then(user => {
+                res.json(user)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     },
 
     newUser: (req, res) => {
-        console.log(req.body);
-        users.push(req.body);
-        res.json({ status: "ok" });
+        User.create(req.body)
+            .then(newUser => {
+                res.json(newUser)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     },
 
     updateUser: (req, res) => {
-        const id = req.params.id
-        users[id] = req.body
-        res.json({ msg: "ok" })
+        User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+            .then(user => {
+                res.json(user)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     },
 
     deleteUser: (req, res) => {
-        const id = req.params.id
-        users.splice(id, 1)
-        res.json()
+        User.deleteOne({ _id: req.params.id })
+            .then(user => {
+                res.json(user)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     }
 
 
