@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import ProductForm from './ProductForm'
 
 const EditProducts = () => {
     const { id } = useParams()
@@ -42,21 +43,7 @@ const EditProducts = () => {
 
     return (
         <div>
-            <h2>Edit Product:</h2>
-            <fieldset>
-                <form onSubmit={handleSubmit} >
-                    <label>Title:</label>
-                    <input type="text" name='title' onChange={handleChange} value={formData.title} />
-                    <br />
-                    <label>Price: $</label>
-                    <input type="number" name='price' onChange={handleChange} value={formData.price} />
-                    <br />
-                    <label>Description:</label>
-                    <input type="text" name='description' onChange={handleChange} value={formData.description} />
-                    <br />
-                    <button>Create</button>
-                </form>
-            </fieldset>
+            <ProductForm />
         </div>
     )
 }
