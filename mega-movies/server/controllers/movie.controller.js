@@ -27,7 +27,7 @@ module.exports = {
     },
 
     delete: (req, res) => {
-        Movie.findByIdAndDelete({ _id: req.params.id })
+        Movie.findOneAndDelete({ _id: req.params.id })
             .then(movie => res.json(movie))
             .catch(err => json(err))
     }

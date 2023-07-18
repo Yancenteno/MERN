@@ -1,26 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import MovieCard from '../components/MovieCard'
 
 const Dashboard = () => {
-    const movie = {
-        title: "Requiem for a Dream",
-        year: 2000,
-        genre: "Tragedy",
-        description: "Requiem for a dream is a 2000 American psychological drama film",
-        poster: "https://upload.wikimedia.org/wikipedia/en/9/92/Requiem_for_a_dream.jpg"
+
+    const [movies, setMovies] = useState([])
+
+
+
+    const fetchMovies = () => {
+        axios.get("http://localhost:8000/api/movies")
+            .then(res => setMovies(res.data))
+            .catch(err => console.log(err))
     }
+
+    useEffect(fetchMovies, [])
+
     return (
         <div className='movieContainer'>
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
-            <MovieCard mov={movie} />
+            {movies.map((movie, key) => {
+                return <MovieCard mov={movie} />
+            })}
         </div>
     )
 }
