@@ -17,13 +17,12 @@ const MovieSchema = new mongoose.Schema({
     description: {
         type: String,
         require: [true, "Please provide a description!"],
-        maxlength: [255, "Please keep your description under 256 characters!"]
+        maxLength: [255, "Please keep your description under 256 characters!"]
     },
     poster: {
         type: String,
-        require: [true, "Please provide a poster!"]
     }
 }, { timestamps: true })
 
-const Movies = mongoose.model('Movie', MovieSchema)
+const Movie = mongoose.model('Movie', MovieSchema)
 module.exports = Movie

@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Link } from 'react-router-dom'
+import './Movies.css'
+import Dashboard from "./views/Dashboard";
+import New from "./views/New";
+import Update from "./views/Update";
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className='navBar'>
+        <h1 className='pageTitle'>Cube Smasher Video</h1>
+        <Link className='navLink' to='/' >Dashboard</Link>
+        <Link className='navLink' to='/new' >Add a Movie</Link>
+      </div>
+
+      <Routes>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/new' element={<New />} />
+        <Route path='/update/:id' element={<Update />} />
+      </Routes>
     </div>
   );
 }

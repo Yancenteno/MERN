@@ -2,6 +2,7 @@ import './App.css';
 import New from './views/New';
 import ProductDetail from './views/ProductDetail';
 import EditProducts from './views/EditProducts';
+import Main from './views/Main';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ function App() {
     <div className="App">
 
       <Routes>
-        <Route path='/products/' element={<New />} />
+        <Route path='/products/' element={<Main />} />
         <Route path='/products/:id' element={<ProductDetail />} />
         <Route path='/products/:id/edit' element={<EditProducts />} />
       </Routes>
