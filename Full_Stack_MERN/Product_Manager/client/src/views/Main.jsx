@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import ProductForm from './ProductForm'
-import AllProducts from './AllProducts'
+import ProductForm from '../components/ProductForm'
+import ProductList from './ProductList'
 
 const Main = () => {
   const [item, setItem] = useState([]);
@@ -34,9 +34,10 @@ const Main = () => {
 
   return (
     <div>
+      <h1>Add Your Product</h1>
       <ProductForm onSubmitProp={createProduct} initialTitle="" initialPrice="" initialDescription="" />
       <hr />
-      <AllProducts products={item} removeFromDom={removeFromDom} />
+      <ProductList products={item} removeFromDom={removeFromDom} />
     </div>
   )
 }

@@ -42,12 +42,8 @@ module.exports = {
     },
 
     deleteProduct: (req, res) => {
-        Product.deleteOne({ _id: req.params.id })
-            .then(product => {
-                res.json(product)
-            })
-            .catch(err => {
-                res.json(err)
-            })
+        Product.findByIdAndDelete({ _id: req.params.id })
+            .then(product => res.json(product))
+            .catch(err => res.json(err))
     }
 }

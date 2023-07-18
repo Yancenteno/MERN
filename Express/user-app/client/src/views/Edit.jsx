@@ -39,10 +39,7 @@ const Edit = () => {
 
         axios.put(`http://localhost:8000/api/users/${id}`, formData)
             .then(res => {
-                setFormData({
-                    first: "",
-                    last: ""
-                })
+                setFormData({ first: "", last: "" })
                 navigator('/')
             })
             .catch(err => console.log(err))

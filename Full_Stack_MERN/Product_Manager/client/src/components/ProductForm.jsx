@@ -18,7 +18,7 @@ const ProductForm = props => {
         <div>
             <form onSubmit={onSubmitHandler}>
                 <p>
-                    <label>Title:</label><br />
+                    <label>Title:</label>
                     <input type='text' name='title' value={title}
                         onChange={(e) => { setTitle(e.target.value) }} />
                 </p>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AllProducts from './AllProducts'
+import 
 import axios from 'axios'
 
 const New = () => {

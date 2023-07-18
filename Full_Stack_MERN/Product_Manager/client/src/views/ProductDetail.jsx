@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import DeleteButton from '../components/DeleteButton'
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
+    const [product, setProduct] = useState([])
     const { id } = useParams()
 
-    const [product, setProduct] = useState([])
 
 
     useEffect(() => {
         axios.get(`http://localhost:8000/products/${id}`)
-            .then(res => {
-                setProduct(res.data)
-            })
-            .catch(err => console.log(err))
-    }, [])
+            .then(res => setProduct(res.data))
+            .catch(err => console.error(err))
+    }, [id])
+
+
+    const removeFromDom = () => {
+        axios.delete(`http://localhost:8000/products/${id}`)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err))
+    }
 
 
 
@@ -24,7 +30,7 @@ const ProductDetail = () => {
             <h3> {product.title} </h3>
             <p>Price: ${product.price} </p>
             <p>Description: {product.description} </p>
-            <Link to={`/products/${product._id}/edit`} >Edit</Link>
+            <DeleteButton successCallback={removeFromDom} />
         </div>
     )
 }
