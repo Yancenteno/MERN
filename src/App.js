@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import MainView from './views/MainView';
+import AddView from './views/AddView';
+import EditView from './views/EditView';
+import './myStyle.css'
+import RandomView from './views/RandomView';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Routes>
+        <Route path='/' element={<MainView />} />
+        <Route path='/notes/new' element={<AddView />} />
+        <Route path='/notes/:id' element={<EditView />} />
+        <Route path='/notes/rand' element={<RandomView />} />
+      </Routes>
     </div>
   );
 }
